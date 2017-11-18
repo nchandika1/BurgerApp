@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-md-4">
+		<img src="https://i0.wp.com/gratefulgrazer.com/wp-content/uploads/2017/08/Crave-Worthy-Feat-Image.png?resize=680%2C900" alt="veg burger" width=300>
+	</div>
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Burgers on the Menu!</h3>
+				<ul>
+					{{#each burgers}}
+						{{> burger-block}}
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" id="burger-list">
+				<!-- Burger list goes here -->
+
+				<div class="item"></div>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<form>
+					<div class="form-group">
+						<label for="name">Enter Burger Name: </label>
+						<input type="text" id="burger" name="name">
+					</div>
+				<button class="btn btn-primary" type="submit" id="create">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
