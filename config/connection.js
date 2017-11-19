@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
 // Connection to the burgers_db
 connection.connect(function(err) {
 	if (err) throw err;
-	console.log("Connected ID: " + connection.threadId);
+	console.log("DB Connected ID: " + connection.threadId);
 });
 
 module.exports = connection;

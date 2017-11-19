@@ -1,5 +1,5 @@
+// Dependencies
 var orm = require("../config/orm.js");
-
 
 var burger = {
 	all: function(cb) {
@@ -16,7 +16,6 @@ var burger = {
 	update: function(id, devoured, cb) {
     var conditionStr = "id="+id;
     var cols = new Array("devoured="+devoured);
-    console.log(cols);
   	orm.update("burgers", cols, conditionStr, function(res) {
     		cb(res);
   	});

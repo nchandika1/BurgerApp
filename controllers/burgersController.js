@@ -1,8 +1,23 @@
+/*
+ * Contains all routes on the Server side.  In this App, get, post and put are used. 
+ */
+
+// Dependencies
 var express = require("express");
 var burger = require("../models/burger.js");
 
 // Routes for the Burger App
 var router = express.Router();
+
+router.get("/", function(req, res) {
+	console.log("GET all burgers!");
+	burger.all(function(data) {
+		var burgerObj = {
+			burgers: data
+		};		
+		res.render('index', burgerObj);
+	});
+});
 
 router.get("/index", function(req, res) {
 	console.log("GET all burgers!");
@@ -16,7 +31,6 @@ router.get("/index", function(req, res) {
 
 router.post("/index", function(req, res) {
 	console.log("ADD a burger!");
-	console.log(req.body);
 	var colArray = ["burger_name"];
 	var valArray = [req.body.name];
 	burger.create(colArray, valArray, function(data) {

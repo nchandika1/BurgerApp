@@ -1,5 +1,10 @@
+/*
+ * Contains all the Client Side Javascript code.
+ * Handles all the Click functions for the Burgers app
+*/
+
 $(function() {
-	// On Click function for create button
+	// On Click function for Create button
 	// Create a new burger
 	$("#create").on("click", function() {
 
@@ -8,7 +13,7 @@ $(function() {
 			name: $("#burger").val().trim()
 		};
 
-		// AJAX call to send data to the Server to create a new burger
+		// AJAX call to create new burger in the database
 		$.ajax("/index", {
 			type: "POST",
 			data: burgerName
@@ -17,25 +22,22 @@ $(function() {
 		});
 	});
 	
+	// On Click function for Devour It button
+	// Update burger's 'devoured' property
 	$(".devour").on("click", function() {
 
 		event.preventDefault();
 		var routeStr ="/index/" + $(this).data("id");
 		var devoured = false;
-		if ($(this).data("devoured") == "false") {
+		if ($(this).data("devour") == "0") {
 			devoured = true;
 		}
-		// Update the data attrbute to changed value;
-		// $(this).data(devoured);
-
-		console.log(devoured);
-		console.log(routeStr);
 
 		var dataObj = {
 			devoured: devoured
 		};
 
-		console.log(dataObj);
+		// AJAX call to update "devoured" property of the burger
 		$.ajax(routeStr, {
 			type: "PUT",
 			data: dataObj

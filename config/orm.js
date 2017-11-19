@@ -5,6 +5,7 @@
 // Dependencies: Make sure we have connection to the database
 var connection = require("./connection.js");
 
+// Utility functions
 var colToString = function (cols) {
 	var colString = '(';
 	for (var i=0; i<cols.length-1; i++) {
@@ -13,10 +14,8 @@ var colToString = function (cols) {
 	}
 	colString += cols[cols.length-1];
 	colString += ')';
-	console.log(colString);
 	return colString;
 };
-
 var valToString = function (vals) {
 	var valString = '(';
 	for (var i=0; i<vals.length-1; i++) {
@@ -27,7 +26,6 @@ var valToString = function (vals) {
 	valString += vals[vals.length-1];
 	valString += "\"";
 	valString += ')';
-	console.log(valString);
 	return valString;
 };
 
@@ -48,7 +46,6 @@ var orm = {
 		queryString += colToString(cols);
 		queryString += " VALUES ";
 		queryString += valToString(vals);
-		console.log(queryString);
 		connection.query(queryString, function(err, res) {
 			if (err) throw err;
 			cb(res);
@@ -58,8 +55,7 @@ var orm = {
 	// Update a given field in the database
 	update: function(tableID, cols, condition, cb) {
 		var queryString = "UPDATE " + tableID + " SET " + cols[0];
-			queryString += " WHERE " + condition;
-		console.log(queryString);
+		queryString += " WHERE " + condition;
 		connection.query(queryString, function(err, res) {
 			if (err) throw err;
 			cb(res);
