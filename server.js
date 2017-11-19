@@ -8,7 +8,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
-const PORT = 3000;  // Port to listen to
+const PORT = process.env.PORT || 3000;  // Port to listen to
 
 var app = express();  // Get express handle
 
