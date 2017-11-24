@@ -1,0 +1,43 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	background-color: gray;
+	text-align: center;
+	padding: 10px;
+}
+
+.container {
+	flex: 1 0 auto;
+}
+
+.burgers-list {
+}
+
+.burger {
+	margin: 20px 0;
+}
+
+.burger-name {
+	color: teal;
+}
+
+.devoured {
+	background-color: lightgray;
+	border: solid 2px gray;
+}
+
+.footer {
+	background-color: lightgray;
+	color: teal;
+	text-align: center;
+	font-size: small;
+	font-weight: bold;
+	padding: 5px;
+}

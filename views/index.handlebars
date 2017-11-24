@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row"><h1>Burgers on the Menu!</h1></div>
+	<div class="row">
+		<div class="col-md-4">
+			<img src="https://i0.wp.com/gratefulgrazer.com/wp-content/uploads/2017/08/Crave-Worthy-Feat-Image.png?resize=680%2C900" alt="veg burger" width=300>
+		</div>
+		<div class="col-md-4" id="not-devoured">
+			<div class="row">
+				<!-- Newly created Burger list goes here -->
+				<div class="burgers-list">
+					{{#each burgers}}
+						{{#unless devoured}}
+							{{> burger-block}}
+						{{/unless}}
+					{{/each}}
+				</div>
+				<!-- Create a Burger button goes here -->
+				<form>
+					<div class="form-group">
+						<label for="name">Enter Burger Name: </label>
+						<input type="text" id="burger" name="name">
+					</div>
+					<button class="btn btn-primary" type="submit" id="create">Create</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-4" id="devoured"">
+			<!-- Devoured Burger list goes here -->
+			<ul>
+				{{#each burgers}}
+					{{#if devoured}}
+						<div class="devoured">{{burger_name}}</div>
+					{{/if}}
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>
+<footer class="footer">
+	© Copyright 2017 Nagarani Chandika
+</footer>
+
